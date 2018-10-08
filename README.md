@@ -13,7 +13,7 @@ Apart from these sections there are two other sections:
 2. Statistics
 ### General Guidelines
 This contains general guidelines to be followed before and after each disaster.
-#### Statistics
+### Statistics
 This section shows our analysis of disasters during the course of last 50-60 years.
 
 **Note:** The idea is under development phase.
