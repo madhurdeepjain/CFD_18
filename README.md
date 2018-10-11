@@ -6,7 +6,7 @@ This web app aims to predict the natural disasters and help government and commu
 3. Emergency Section
 
 ### Future Predictions
-This section contains the pre-trained models over various major disasters. We will apply machine learning and deep learning techinques on the available dataset to predict the forthcoming disasters.The models will be trained using Tensorflow lib, sklearn lib and Microsoft CNTK Toolkit. These models will be loaded in the browser via TensorflowJs. The dataset features will be different for each disaster. The dataset has been scraped and mined from various authentic sources like Satelite Data, Twitter, etc. <br/>
+This section contains the pre-trained models over various major disasters. We will apply machine learning and deep learning techinques on the available dataset to predict the forthcoming disasters.The models will be trained using Tensorflow lib, sklearn lib and Microsoft CNTK Toolkit. These models will be loaded in the browser via TensorflowJs. The dataset features will be different for each disaster. The dataset has been scraped and mined from various authentic sources like Satelite Data, Twitter etc. <br/>
 We also plan to propose sensors that can be used by cities/states to improve the probability of prediction. These Sensors are part of our smart city idea to implement IoT devices in order to get real time and improved predictions. 
 
 ### Major ongoing or recent events
@@ -21,8 +21,8 @@ Apart from these sections there are two other sections:
 2. Statistics
 
 ### General Guidelines 
-Along with it a framework will be designed to provid basic guidlines for people struck in these disasters.
+Along with it a framework will be designed to provide basic guidelines for people stuck in these disasters.
 
 ### Statistics
-This section shows our analysis of disasters during the course of last 50-60 years. The data is presented in statistical and graphical format.
+This section shows our analysis of disasters during the course of last 50-60 years. The data will be presented in both statistical and graphical format.
 
