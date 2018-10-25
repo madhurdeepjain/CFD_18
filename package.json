@@ -8,8 +8,8 @@
     "start" : "node app.js"
   },
   "engines": {
-    "node": "5.9.1",
-    "npm": "3.7.3"
+    "node": "8.11.1",
+    "npm": "6.1.0"
   },
   "author": "Vishal Agarwal",
   "license": "ISC",
