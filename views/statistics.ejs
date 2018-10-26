@@ -10,6 +10,8 @@
 <link rel="stylesheet" type="text/css" href="../style/recent.css">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.js"></script>
 
 </head>
 <body>
@@ -120,6 +122,7 @@
       <center><canvas id="lineg" style="background: white;border-radius: 5px;"></canvas></center>
     </div>
 	</div>
+  <center><h4 style="margin-top: 10px;">Sector Wise Distribution (Select Sector)</h4></center>
 </div>
 
 <div style="height: 20px;"></div>
@@ -141,18 +144,17 @@
 
   </div>
 </div>
-
-<footer id="foot">
-   <div class="footer-bottom text-center">
-    Copyright &copy; 2018 Salvador
-  </div>
-</footer>
 <script src="./../js/guid.js"></script>
 <script src="./../js/volStatistics.js"></script>
+<script src="./../js/Volcano.js"></script>
 
 <style type="text/css">
   #earth{
     display: none;
+  }
+  #defaultCanvas0{
+    display: none;
+    margin-left: 220px;
   }
 </style>
 
@@ -171,14 +173,14 @@ function closeNav() {
 
 $("#Volcanic").click(function(){
     $("#earth").fadeOut();
-    $("#default").fadeOut();
+    $("#defaultCanvas0").fadeOut();
     $("#volcano").fadeIn(3000);
 });
 
 $("#Earthquake").click(function(){
-    $("#default").fadeOut();
     $("#volcano").fadeOut();
     $("#earth").fadeIn(3000);
+    $("#defaultCanvas0").fadeIn(3000);
 });
 
 </script>
