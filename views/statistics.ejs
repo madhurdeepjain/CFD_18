@@ -77,6 +77,51 @@
 		</div>
 	</div>
 </div>
+
+<div class="container-fluid" id="earth">
+	<div class="col-md-12">
+		<center><h1 style="margin-bottom: 20px;">Earthquake</h1></center>
+	</div>
+	<div class="col-md-12">
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #E74C3C;" onclick="fu1();">Sector-1</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #884EA0;" onclick="fu2();">Sector-2</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #2E86C1" onclick="fu3();">Sector-3</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #17A589" onclick="fu4();">Sector-4</button>
+		</div>
+		<div class="col-md-12" style="height: 10px;"></div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #F39C12" onclick="fu5();">Sector-5</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #2ECC71" onclick="fu6();">Sector-6</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #BB8FCE" onclick="fu7();">Sector-7</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #F1C40F" onclick="fu8();">Sector-8</button>
+		</div>
+	</div>
+  <div class="col-md-12" style="height: 20px;"></div>
+	<div class="col-md-12">
+    <div class="col-md-6">
+      <center><h4>log(N) Relation to Magnitude</h4></center>
+      <center><canvas id="scatter" style="background: white;border-radius: 5px;"></canvas></center>
+    </div>
+    <div class="col-md-6">
+      <center><h4>Year Wise Earthquake Distribution (Mag > 4.5)</h4></center>
+      <center><canvas id="lineg" style="background: white;border-radius: 5px;"></canvas></center>
+    </div>
+	</div>
+</div>
+
 <div style="height: 20px;"></div>
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -104,7 +149,12 @@
 </footer>
 <script src="./../js/guid.js"></script>
 <script src="./../js/volStatistics.js"></script>
-<script src="./../js/Volcano.js"></script>
+
+<style type="text/css">
+  #earth{
+    display: none;
+  }
+</style>
 
 <script>
 function openNav() {
@@ -118,6 +168,19 @@ function closeNav() {
     document.getElementById("main").style.marginLeft= "0";
     document.body.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
 }
+
+$("#Volcanic").click(function(){
+    $("#earth").fadeOut();
+    $("#default").fadeOut();
+    $("#volcano").fadeIn(3000);
+});
+
+$("#Earthquake").click(function(){
+    $("#default").fadeOut();
+    $("#volcano").fadeOut();
+    $("#earth").fadeIn(3000);
+});
+
 </script>
      
 </body>
