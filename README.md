@@ -1,4 +1,6 @@
 # CodeFunDo++ 2018
+This app is hosted at https://codeforgood.azurewebsites.net/
+Video link: https://youtu.be/rF_tYcFjgco
 This web app aims to predict the natural disasters and help government and community in tackling them. There are mainly 4 sections:
 
 1. Future Predictions 
