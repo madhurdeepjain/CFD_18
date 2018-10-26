@@ -28,7 +28,7 @@ function showPosition(position){
   lat.innerHTML = position.coords.latitude;
   lonD = parseFloat(long.innerHTML);
   latD = parseFloat(lat.innerHTML)
-  url = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latD + '&lon=' + lonD + '&appid=aeaf3c2b6dca28e5c5ace5a2ca0f95aa';
+  url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + latD + '&lon=' + lonD + '&appid=aeaf3c2b6dca28e5c5ace5a2ca0f95aa';
   $.getJSON(url, function(result){
   	data = result;
 	console.log(data);
