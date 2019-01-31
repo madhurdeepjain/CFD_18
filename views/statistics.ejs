@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./../style/new.css">
+<link rel="stylesheet" type="text/css" href="../style/main.css">
+<link rel="stylesheet" type="text/css" href="../style/recent.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.js"></script>
+
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/recent">Recent Events</a>
+    <a href="/live_stock">Live Reports</a>
+    <a href="/uplift">Disaster Uplift</a>
+    <a href="/statistics" class="active">Statistics</a>
+    <a href="/guid">Guidelines</a>
+</div>
+
+<div class="topnav" id="myTopnav">
+  <a href="/">
+    <img src="./../images/logo.png" style="width: 15px;">
+  </a>
+  <div id="imp">
+  <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal" style="background-color: black;">
+    <i class="fa fa-commenting" aria-hidden="true" style="color: white;margin-top: 8px;"></i>
+  </button>
+  <a href="/emergency">Emergency</a>
+  </div>
+  </a>
+</div>
+
+<div id="main">
+  <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+
+<center><h1>Statistical Study</h1></center>
+<br>
+<div class="container-fluid">
+  <div class="col-md-12">
+  <center>
+  <div class="col-md-3">
+    <button id="Earthquake" style="background: url(./../images/earthquake.jpg);">Earthquake</button>
+  </div>
+  <div class="col-md-3">
+    <button id="Volcanic" style="background: url(./../images/volcano.jpg);">Volcanic Eruption</button>
+  </div>
+  <div class="col-md-3">
+    <button id="Tsunami" style="background: url(./../images/tsunami.jpg);">Tsunami</button>
+  </div>
+  <div class="col-md-3">
+    <button id="Flood" style="background: url(./../images/flood.jpg);">Flood</button>
+  </div>
+  </center>
+  </div>
+</div>
+
+<div class="container-fluid" id="volcano">
+	<div class="col-md-12">
+		<center><h1 style="margin-bottom: 20px;">Volcanic Eruption</h1></center>
+	</div>
+	<div class="col-md-12">
+		<div class="col-md-6">
+			<center><h4>Region-wise Distribution</h4></center>
+			<canvas id="con" style="background: white;border-radius: 5px;"></canvas>
+		</div>
+		<div class="col-md-6">
+			<center><h4>Most Volcano Prone Countries</h4></center>
+			<canvas id="region" style="background: white;border-radius: 5px;"></canvas>
+			<center><h4>Volcano Explosivity Index Distribution</h4></center>
+			<canvas id="pei" style="background: white;border-radius: 5px;"></canvas>
+		</div>
+	</div>
+</div>
+
+
+<div class="container-fluid" id="tsunamis" style="display: none;">
+  <div class="col-md-12">
+    <center><h1 style="margin-bottom: 20px;">Tsunami</h1></center>
+  </div>
+  <div class="col-md-12">
+    <div class="col-md-6">
+      <center><h4>Distribution of Tsunami Effected Regions</h4></center>
+      <canvas id="tsuPie" style="background: white;border-radius: 5px;"></canvas>
+    </div>
+    <div class="col-md-6">
+      <center><h4>Most Tsunami Prone Countries</h4></center>
+      <canvas id="radarChart" style="background: white;border-radius: 5px;"></canvas>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <center><h4>Tsunami Causes</h4></center>
+    <canvas id="tsubar" style="background: white;border-radius: 5px;"></canvas>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="container-fluid" id="floods" style="display: none;">
+  <div class="col-md-12">
+    <center><h1 style="margin-bottom: 20px;">Flood</h1></center>
+  </div>
+  <div class="col-md-12">
+    <div class="col-md-6">
+      <center><h4>Year Wise Flood Count</h4></center>
+      <canvas id="floodline" style="background: white;border-radius: 5px;"></canvas>
+    </div>
+    <div class="col-md-6">
+      <center><h4>Flood Causes</h4></center>
+      <canvas id="floodPie" style="background: white;border-radius: 5px;height: 110%"></canvas>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+      <center><h4>Most Flood Prone Countries</h4></center>
+      <canvas id="floodBar" style="background: white;border-radius: 5px;"></canvas>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+
+<div class="container-fluid" id="earth">
+	<div class="col-md-12">
+		<center><h1 style="margin-bottom: 20px;">Earthquake</h1></center>
+	</div>
+	<div class="col-md-12">
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #E74C3C;" onclick="fu1();">Sector-1</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #884EA0;" onclick="fu2();">Sector-2</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #2E86C1" onclick="fu3();">Sector-3</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #17A589" onclick="fu4();">Sector-4</button>
+		</div>
+		<div class="col-md-12" style="height: 10px;"></div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #F39C12" onclick="fu5();">Sector-5</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #2ECC71" onclick="fu6();">Sector-6</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #BB8FCE" onclick="fu7();">Sector-7</button>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-block" style="background: #F1C40F" onclick="fu8();">Sector-8</button>
+		</div>
+	</div>
+  <div class="col-md-12" style="height: 20px;"></div>
+	<div class="col-md-12">
+    <div class="col-md-6">
+      <center><h4>log(N) Relation to Magnitude</h4></center>
+      <center><canvas id="scatter" style="background: white;border-radius: 5px;"></canvas></center>
+    </div>
+    <div class="col-md-6">
+      <center><h4>Year Wise Earthquake Distribution (Mag > 4.5)</h4></center>
+      <center><canvas id="lineg" style="background: white;border-radius: 5px;"></canvas></center>
+    </div>
+	</div>
+  <center><h4 style="margin-top: 10px;">Sector Wise Distribution (Select Sector)</h4></center>
+</div>
+
+<div style="height: 20px;"></div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body" style="background-color: rgba(0, 0, 0, 0.9);">
+        <center>
+          <iframe
+            allow="microphone;"
+            width="500"
+            height="430"
+            src="https://console.dialogflow.com/api-client/demo/embedded/ed4378bf-d158-4491-a816-7ec59b8b8ac8">
+          </iframe>
+        </center>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="./../js/guid.js"></script>
+<script src="./../js/statistics.js"></script>
+<script src="./../js/Volcano.js"></script>
+
+<style type="text/css">
+  #earth{
+    display: none;
+  }
+  #defaultCanvas0{
+    display: none;
+    margin-left: 220px;
+  }
+</style>
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
+}
+
+$("#Volcanic").click(function(){
+    $("#earth").fadeOut();
+    $("#tsunamis").fadeOut();
+    $("#floods").fadeOut();
+    $("#defaultCanvas0").fadeOut();
+    $("#volcano").fadeIn(3000);
+});
+
+$("#Earthquake").click(function(){
+    $("#volcano").fadeOut();
+    $("#tsunamis").fadeOut();
+    $("#floods").fadeOut();
+    $("#earth").fadeIn(3000);
+    $("#defaultCanvas0").fadeIn(3000);
+});
+
+$("#Tsunami").click(function(){
+    $("#volcano").fadeOut();
+    $("#earth").fadeOut();
+    $("#floods").fadeOut();
+    $("#defaultCanvas0").fadeOut();
+    $("#tsunamis").fadeIn(3000);
+});
+
+$("#Flood").click(function(){
+    $("#volcano").fadeOut();
+    $("#earth").fadeOut();
+    $("#tsunamis").fadeOut();
+    $("#defaultCanvas0").fadeOut();
+    $("#floods").fadeIn(3000);
+});
+
+</script>
+     
+</body>
+</html> 

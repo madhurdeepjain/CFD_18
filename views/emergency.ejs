@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="./../style/style.css">
+  <link rel="stylesheet" href="./../style/new.css">
+  <title>Emergency</title>
+</head>
+
+<body>
+
+
+<div class="topnav" id="myTopnav">
+  <a href="/">
+    <img src="./../images/logo.png" style="width: 15px;">
+  </a>
+  <div id="imp">
+  <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal" style="background-color: black;">
+    <i class="fa fa-commenting" aria-hidden="true" style="color: white;margin-top: 8px;"></i>
+  </button>
+  <a href="/emergency">Emergency</a>
+  </div>
+  </a>
+</div>
+
+    <h1 class="logo">Help-Line Form</h1><br>
+    <div class="container-fluid">
+      <div id="col-md-12">
+        <div style="float: left;margin-left: 7%;margin-top: 1.5%;">
+          <div>
+            <table class="table">
+              <tr>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-map" aria-hidden="true"></i> Longitude 
+                </td>
+                <td>
+                  <p id="long"></p>
+                </td>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-map" aria-hidden="true"></i> Latitude 
+                </td>
+                <td>
+                  <p id="lat"></p>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-globe" aria-hidden="true"></i> Town
+                </td>
+                <td>
+                  <p id="name"></p>
+                </td>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-globe" aria-hidden="true"></i> Country
+                </td>
+                <td>
+                  <p id="country"></p>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-bolt" aria-hidden="true"></i> Weather
+                </td>
+                <td>
+                  <p id="weather"></p>
+                </td>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-thermometer-empty" aria-hidden="true"></i> Temperature
+                </td>
+                <td>
+                  <p id="temp"></p>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-mercury" aria-hidden="true"></i> Pressure
+                </td>
+                <td>
+                  <p id="pressure"></p>
+                </td>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-certificate" aria-hidden="true"></i> Humidity
+                </td>
+                <td>
+                  <p id="humidity"></p>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-level-up" aria-hidden="true"></i> Sea Level
+                </td>
+                <td>
+                  <p id="sea"></p>
+                </td>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-bullseye" aria-hidden="true"></i> Wind Speed
+                </td>
+                <td>
+                  <p id="wind"></p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div style="float: right;margin-right: 7%;">
+            <form method="POST" action="locationRetrieve">
+              <table class="table">
+                <tr>
+                  <td style="background-color:#E5E7E9;">Full Name *</td>
+                  <td><input type="text" name="name" required="true"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Personal Contact Number *</td>
+                  <td><input type="text" name="phone01" required="true"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Family Contact Number</td>
+                  <td><input type="text" name="phone02"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Disaster Type</td>
+                  <td><input type="text" name="disaster"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Latitude *</td>
+                  <td><input type="number" name="lat" required="true" step="0.0001"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Longitude *</td>
+                  <td><input type="number" name="lon" required="true" step="0.0001"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Image ID</td>
+                  <td><center><input name="myImage" type="file" style="margin-left: 25%;"></center></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">
+                  <center>
+
+                    <select id="mylist" style="float: left;margin-left: 10%;margin-top: 3%;">
+                      <option value="en-IN">English(India)</option>
+                      <option value="hi-IN">Hindi(India)</option>
+                      <option value="en-US">English(USA)</option>
+                      <option value="en-GB">English(Britain)</option>
+                      <option value="es-ES">Spanish(Spain)</option>
+                      <option value="fr-FR">French(France)</option>
+                      <option value="ja-JP">Japanese(Japan)</option>
+                      <option value="pt-PT">Portuguese(Portugal)</option>
+                      <option value="ru-RU">Russian(Russia)</option>
+                      <option value="de-DE">German(Geramany)</option>
+                    </select>
+
+                    <button id="startRecognizeOnceAsyncButton" style="float: right;margin-right: 10%;border-radius: 100%;" class="btn btn-primary"><i class="fa fa-microphone" aria-hidden="true"></i></button>
+                  </center>
+                  </td>
+                  <td>
+                    <textarea id="phraseDiv" style="display: inline-block;"></textarea>
+                  </td>
+                </tr>
+              </table>
+              <center><button class="btn btn-success" type="submit">Submit</button></center>
+            </form>
+        </div>
+      </div>
+    </div>
+
+
+
+   
+  <script src="./../js/main.js"></script>
+  <script src="./../js/speechapi.js"></script>
+  <script type="text/javascript" src="./../js/openweather.js"></script>
+  <script src="./../js/microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
+</body>
+
+</html>
+
+<style>
+  h1{
+    text-align: center;
+  }
+</style>
+
+  <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body" style="background-color: rgba(0, 0, 0, 0.9);">
+        <center>
+          <iframe
+            allow="microphone;"
+            width="500"
+            height="430"
+            src="https://console.dialogflow.com/api-client/demo/embedded/ed4378bf-d158-4491-a816-7ec59b8b8ac8">
+          </iframe>
+        </center>
+      </div>
+    </div>

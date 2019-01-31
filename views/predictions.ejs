@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./../style/new.css">
+<link rel="stylesheet" type="text/css" href="../style/main.css">
+<link rel="stylesheet" type="text/css" href="../style/recent.css">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.dom.js"></script>
+</head>
+<body>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="/predictions" class="active">Predictions</a>
+  <a href="/recent">Recent Events</a>
+  <a href="/statistics">Statistics</a>
+  <a href="/guid">Guidelines</a>
+  <a href="/uplift">Disaster Uplift</a>
+  <a href="/live_stock">Live Reports</a>
+</div>
+
+<div class="topnav" id="myTopnav">
+  <a href="/">
+    <img src="./../images/logo.png" style="width: 15px;">
+  </a>
+  <div id="imp">
+  <button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal" style="background-color: black;">
+    <i class="fa fa-commenting" aria-hidden="true" style="color: white;margin-top: 8px;"></i>
+  </button>
+  <a href="/emergency">Emergency</a>
+  </div>
+  </a>
+</div>
+
+<div id="main">
+  <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776;</span>
+</div>
+
+<center><h1>Disaster Predictions</h1></center>
+<br>
+<div class="container-fluid">
+  <div class="col-md-12">
+  <center>
+  <div class="col-md-3">
+    <button id="Earthquake" style="background: url(./../images/earthquake.jpg);">Earthquake</button>
+  </div>
+  <div class="col-md-3">
+    <button id="Volcanic" style="background: url(./../images/volcano.jpg);">Volcanic Eruption</button>
+  </div>
+  <div class="col-md-3">
+    <button id="Tsunami" style="background: url(./../images/tsunami.jpg);">Tsunami</button>
+  </div>
+  <div class="col-md-3">
+    <button id="Fire" style="background: url(./../images/wild.jpg);">Wild Fire</button>
+  </div>
+  </center>
+  <!--
+  <div class="col-md-3">
+    <button id="Flood" style="background: url(./../images/flood.jpg);">Flood</button>
+  </div>
+  <div class="col-md-3">
+    <button id="Tornado" style="background: url(./../images/tornado.jpg);">Tornado</button>
+  </div>
+  <div class="col-md-3">
+    <button id="Hurricane" style="background: url(./../images/hurricane.jpg);">Hurricane</button>
+  </div>
+  <div class="col-md-3">
+    <button id="Landslide" style="background: url(./../images/landslide.jpg);background-size: 100%;">Lightning</button>
+  </div>
+  -->
+  </div>
+</div>
+
+<div id="volcano" class="container-fluid">
+<div class="col-md-12">
+  <center><h3>The index Locations represent the volcanoes with max probabiity to erupt in the future</h3></center>
+</div>
+<div class="col-md-3">
+  <center>
+  <div style="background: red;height: 15px;width:15px;border: 1px solid black;border-radius: 5px;"></div>
+  <center>
+  <div>
+    <center><h4>Avachinsky Koryaksky</h4></center>
+  </div>
+  <center>
+  <div style="background: blue;height: 15px;width:15px;border: 1px solid black;border-radius: 5px;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Colima</h4></center>
+  </div>
+  <div style="background: green;height: 15px;width:15px;border: 1px solid black;border-radius: 5px;">
+    
+  </div>
+  <div>
+    <center><h4>Galeras</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: cyan;height: 15px;width:15px;border: 1px solid black;border-radius: 5px;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Mount Lao</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: pink;height: 15px;width:15px;border: 1px solid black;border-radius: 5px;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Mount Etna</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: purple;height: 15px;width:15px;border: 1px solid black;border-radius: 5px;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Mount Merapi</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: orange;height: 15px;width:15px;border: 1px solid black;border-radius: 5px;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Mount Nyiragongo</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: yellow;height: 15px;width:15px;border: 1px solid black;border-radius: 5px;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Mount Rainier</h4></center>
+    
+  </div>
+</div>
+<div class="col-md-6"></div>
+<div class="col-md-3">
+  
+  <center>
+  <div style="background: red;height: 15px;width:15px;border: 1px solid black;border-radius: 100%;"></div>
+  <center>
+  <div>
+    <center><h4>Mount Vesuvius</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: blue;height: 15px;width:15px;border: 1px solid black;border-radius: 100%;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Mount Unzen</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: green;height: 15px;width:15px;border: 1px solid black;border-radius: 100%;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Sakurajima</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: cyan;height: 15px;width:15px;border: 1px solid black;border-radius: 100%;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Santa Maria</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: pink;height: 15px;width:15px;border: 1px solid black;border-radius: 100%;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Santorini</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: purple;height: 15px;width:15px;border: 1px solid black;border-radius: 100%;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Taal Volcano</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: orange;height: 15px;width:15px;border: 1px solid black;border-radius: 100%;">
+    
+  </div>
+  <center>
+  <div>
+    <center><h4>Teidi</h4></center>
+    
+  </div>
+  <center>
+  <div style="background: yellow;height: 15px;width:15px;border: 1px solid black;border-radius: 100%;">
+  </div></center>
+  <div>
+    <center><h4>Ulawun</h4></center>
+    
+  </div>
+</div>
+</div>
+
+<footer id="foot" style="margin-top: 30px;">
+   <div class="footer-bottom text-center">
+    Copyright &copy; 2018 Salvador
+  </div>
+</footer>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body" style="background-color: rgba(0, 0, 0, 0.9);">
+        <center>
+          <iframe
+            allow="microphone;"
+            width="500"
+            height="430"
+            src="https://console.dialogflow.com/api-client/demo/embedded/ed4378bf-d158-4491-a816-7ec59b8b8ac8">
+          </iframe>
+        </center>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="./../js/pred.js"></script>
+<style type="text/css">
+  #defaultCanvas0{
+    display: none;
+    margin-left: 290px;
+    position: absolute;
+    top: 410px;
+  }
+</style>
+<script>
+  
+$("#Volcanic").click(function(){
+    $("#earth").fadeOut();
+    $("#defaultCanvas0").fadeIn();
+    $("#volcano").fadeIn(3000);
+});
+</script>
+
+
+<script>
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.body.style.backgroundColor = "rgba(0, 0, 0, 0.9)";
+}
+</script>
+     
+</body>
+</html> 
