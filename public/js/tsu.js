@@ -1,4 +1,4 @@
-let mapimg;
+
 var clon = 0;
 var clat = 0;
 var zoom = 1;

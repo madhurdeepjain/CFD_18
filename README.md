@@ -1,4 +1,6 @@
 # CodeFunDo++ 2018
+This is a clone of the CodeFunDo++ 2018 Hackathon project from CodeForGood Team.
+
 This app is hosted at https://codeforgood.azurewebsites.net/
 
 Video link: https://youtu.be/rF_tYcFjgco

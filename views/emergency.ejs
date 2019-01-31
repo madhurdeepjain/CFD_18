@@ -32,101 +32,163 @@
   </a>
 </div>
 
-
-  <div id="container">
     <h1 class="logo">Help-Line Form</h1><br>
-    <div>
-    	<table class="table">
-    		<tr>
-    			<td style="background-color:#E5E7E9;">
-    				<i class="fa fa-map" aria-hidden="true"></i> Longitude 
-    			</td>
-    			<td>
-    				<p id="long"></p>
-    			</td>
-          <td style="background-color:#E5E7E9;">
-    				<i class="fa fa-map" aria-hidden="true"></i> Latitude 
-    			</td>
-    			<td>
-    				<p id="lat"></p>
-    			</td>
-    		</tr>
-        <tr>
-          <td style="background-color:#E5E7E9;">
-            <i class="fa fa-globe" aria-hidden="true"></i> Town
-          </td>
-          <td>
-            <p id="name"></p>
-          </td>
-          <td style="background-color:#E5E7E9;">
-            <i class="fa fa-globe" aria-hidden="true"></i> Country
-          </td>
-          <td>
-            <p id="country"></p>
-          </td>
-        </tr>
-        <tr>
-          <td style="background-color:#E5E7E9;">
-            <i class="fa fa-bolt" aria-hidden="true"></i> Weather
-          </td>
-          <td>
-            <p id="weather"></p>
-          </td>
-          <td style="background-color:#E5E7E9;">
-            <i class="fa fa-thermometer-empty" aria-hidden="true"></i> Temperature
-          </td>
-          <td>
-            <p id="temp"></p>
-          </td>
-        </tr>
-        <tr>
-          <td style="background-color:#E5E7E9;">
-            <i class="fa fa-mercury" aria-hidden="true"></i> Pressure
-          </td>
-          <td>
-            <p id="pressure"></p>
-          </td>
-          <td style="background-color:#E5E7E9;">
-            <i class="fa fa-certificate" aria-hidden="true"></i> Humidity
-          </td>
-          <td>
-            <p id="humidity"></p>
-          </td>
-        </tr>
-        <tr>
-          <td style="background-color:#E5E7E9;">
-            <i class="fa fa-level-up" aria-hidden="true"></i> Sea Level
-          </td>
-          <td>
-            <p id="sea"></p>
-          </td>
-          <td style="background-color:#E5E7E9;">
-            <i class="fa fa-bullseye" aria-hidden="true"></i> Wind Speed
-          </td>
-          <td>
-            <p id="wind"></p>
-          </td>
-        </tr>
-    	</table>
-    </div>
-    <div id="form-box">
-      <i id="prev-btn" class="fas fa-arrow-left"></i>
-      <i id="next-btn" class="fas fa-arrow-right"></i>
-      <div id="input-group">
-        <input id="input-field" required>
-        <label id="input-label"></label>
-        <div id="input-progress"></div>
-      </div>
-      <div id="progress-bar"></div>
-    </div>
-  </div>
+    <div class="container-fluid">
+      <div id="col-md-12">
+        <div style="float: left;margin-left: 7%;margin-top: 1.5%;">
+          <div>
+            <table class="table">
+              <tr>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-map" aria-hidden="true"></i> Longitude 
+                </td>
+                <td>
+                  <p id="long"></p>
+                </td>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-map" aria-hidden="true"></i> Latitude 
+                </td>
+                <td>
+                  <p id="lat"></p>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-globe" aria-hidden="true"></i> Town
+                </td>
+                <td>
+                  <p id="name"></p>
+                </td>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-globe" aria-hidden="true"></i> Country
+                </td>
+                <td>
+                  <p id="country"></p>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-bolt" aria-hidden="true"></i> Weather
+                </td>
+                <td>
+                  <p id="weather"></p>
+                </td>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-thermometer-empty" aria-hidden="true"></i> Temperature
+                </td>
+                <td>
+                  <p id="temp"></p>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-mercury" aria-hidden="true"></i> Pressure
+                </td>
+                <td>
+                  <p id="pressure"></p>
+                </td>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-certificate" aria-hidden="true"></i> Humidity
+                </td>
+                <td>
+                  <p id="humidity"></p>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-level-up" aria-hidden="true"></i> Sea Level
+                </td>
+                <td>
+                  <p id="sea"></p>
+                </td>
+                <td style="background-color:#E5E7E9;">
+                  <i class="fa fa-bullseye" aria-hidden="true"></i> Wind Speed
+                </td>
+                <td>
+                  <p id="wind"></p>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div style="float: right;margin-right: 7%;">
+            <form method="POST" action="locationRetrieve">
+              <table class="table">
+                <tr>
+                  <td style="background-color:#E5E7E9;">Full Name *</td>
+                  <td><input type="text" name="name" required="true"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Personal Contact Number *</td>
+                  <td><input type="text" name="phone01" required="true"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Family Contact Number</td>
+                  <td><input type="text" name="phone02"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Disaster Type</td>
+                  <td><input type="text" name="disaster"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Latitude *</td>
+                  <td><input type="number" name="lat" required="true" step="0.0001"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Longitude *</td>
+                  <td><input type="number" name="lon" required="true" step="0.0001"></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">Image ID</td>
+                  <td><center><input name="myImage" type="file" style="margin-left: 25%;"></center></td>
+                </tr>
+                <tr>
+                  <td style="background-color:#E5E7E9;">
+                  <center>
 
+                    <select id="mylist" style="float: left;margin-left: 10%;margin-top: 3%;">
+                      <option value="en-IN">English(India)</option>
+                      <option value="hi-IN">Hindi(India)</option>
+                      <option value="en-US">English(USA)</option>
+                      <option value="en-GB">English(Britain)</option>
+                      <option value="es-ES">Spanish(Spain)</option>
+                      <option value="fr-FR">French(France)</option>
+                      <option value="ja-JP">Japanese(Japan)</option>
+                      <option value="pt-PT">Portuguese(Portugal)</option>
+                      <option value="ru-RU">Russian(Russia)</option>
+                      <option value="de-DE">German(Geramany)</option>
+                    </select>
+
+                    <button id="startRecognizeOnceAsyncButton" style="float: right;margin-right: 10%;border-radius: 100%;" class="btn btn-primary"><i class="fa fa-microphone" aria-hidden="true"></i></button>
+                  </center>
+                  </td>
+                  <td>
+                    <textarea id="phraseDiv" style="display: inline-block;"></textarea>
+                  </td>
+                </tr>
+              </table>
+              <center><button class="btn btn-success" type="submit">Submit</button></center>
+            </form>
+        </div>
+      </div>
+    </div>
+
+
+
+   
   <script src="./../js/main.js"></script>
+  <script src="./../js/speechapi.js"></script>
   <script type="text/javascript" src="./../js/openweather.js"></script>
+  <script src="./../js/microsoft.cognitiveservices.speech.sdk.bundle.js"></script>
 </body>
 
 </html>
 
+<style>
+  h1{
+    text-align: center;
+  }
+</style>
 
   <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -142,6 +204,3 @@
         </center>
       </div>
     </div>
-
-  </div>
-</div>

@@ -223,7 +223,6 @@ footer .footer-bottom {
 
 #sections img{
   width: 400px;
-  border-radius: 10px;
   margin-top: 40px;
   height: 250px;
 }
@@ -237,21 +236,4 @@ footer .footer-bottom {
 #sections p{
   color: white;
   font-size: 20px;
-}
-
-#sections #section1 img:hover{
-  content: url("./../images/pred.jpg");
-  transition: all ease-in 0.5s;
-}
-#sections #section2 img:hover{
-  content: url("./../images/recent.jpeg");
-  transition: all ease-in 0.5s;
-}
-#sections #section3 img:hover{
-  content: url("./../images/guidline.png");
-  transition: all ease-in 0.5s;
-}
-#sections #section4 img:hover{
-  content: url("./../images/stat.jpg");
-  transition: all ease-in 0.5s;
 }

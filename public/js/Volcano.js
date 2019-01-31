@@ -9,21 +9,41 @@ let risk = [];
 let hazard = [];
 let type = [];
 
+let counter = 0; // by default will be altered by a button...
+
+
 $("#Volcanic").click(function(){
     $("#earth").fadeOut();
-    $("#default").fadeOut();
-    $("canvas").fadeIn(3000);
+    $("#fire").fadeOut();
+    $("#floods").fadeOut();
     $("#butt").fadeIn(3000);
+    $("#defaultCanvas0").fadeIn(3000);
 });
 
 $("#Earthquake").click(function(){
-    $("#default").fadeOut();
-    $("canvas").fadeOut();
-    $("#butt").fadeOut();
+    $("#volcano").fadeOut();
+    $("#fire").fadeOut();
+    $("#floods").fadeOut();
+    $("#defaultCanvas0").fadeOut();
     $("#earth").fadeIn(3000);
 });
 
-let counter = 0; // by default will be altered by a button...
+$("#Tsunami").click(function(){
+    $("#volcano").fadeOut();
+    $("#earth").fadeOut();
+    $("#floods").fadeOut();
+    $("#defaultCanvas0").fadeOut();
+    $("#fire").fadeIn(3000);
+});
+
+$("#Flood").click(function(){
+    $("#volcano").fadeOut();
+    $("#earth").fadeOut();
+    $("#fire").fadeOut();
+    $("#defaultCanvas0").fadeOut();
+    $("#floods").fadeIn(3000);
+});
+
 
 function preload() {
   mapimg = loadImage("https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/0,0,1,0/1024x512?access_token=pk.eyJ1IjoidmlzaGFsMjYwNzAwIiwiYSI6ImNqbHNtb3Z3cTBncmQzcWxieHVnaDFpdXgifQ.tLV__alrVz7n0LIUOc9R2w");

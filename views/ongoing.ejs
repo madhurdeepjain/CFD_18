@@ -17,15 +17,24 @@
     width: 97%;
     height: 90vh;
   }
+  #map2{
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 600px;
+    width: 99%;
+    }
 </style>
+
 <body>
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="/predictions">Predictions</a>
-  <a href="/recent" class="active">Recent Events</a>
-  <a href="/statistics">Statistics</a>
-  <a href="/guid">Guidelines</a>
+    <a href="/recent" class="active">Recent Events</a>
+    <a href="/live_stock">Live Reports</a>
+    <a href="/uplift">Disaster Uplift</a>
+    <a href="/statistics">Statistics</a>
+    <a href="/guid">Guidelines</a>
 </div>
 
 <div class="topnav" id="myTopnav">
@@ -57,33 +66,19 @@
     <button id="Volcanic" style="background: url(./../images/volcano.jpg);">Volcanic Eruption</button>
   </div>
   <div class="col-md-3">
-    <button id="Tsunami" style="background: url(./../images/tsunami.jpg);">Tsunami</button>
+    <button id="Tsunami" style="background: url(./../images/wild.jpg);">WildFire</button>
   </div>
-  <div class="col-md-3">
-    <button id="Fire" style="background: url(./../images/wild.jpg);">Wild Fire</button>
-  </div>
-  </center>
-  <!--
   <div class="col-md-3">
     <button id="Flood" style="background: url(./../images/flood.jpg);">Flood</button>
   </div>
-  <div class="col-md-3">
-    <button id="Tornado" style="background: url(./../images/tornado.jpg);">Tornado</button>
-  </div>
-  <div class="col-md-3">
-    <button id="Hurricane" style="background: url(./../images/hurricane.jpg);">Hurricane</button>
-  </div>
-  <div class="col-md-3">
-    <button id="Landslide" style="background: url(./../images/landslide.jpg);background-size: 100%;">Lightning</button>
-  </div>
-  -->
+  </center>
   </div>
 </div>
 <div class="container-fluid">
  <div class="col-md-12" style="background:none;">
-    <div class="col-md-12">
+    <div id="earth" class="col-md-12" style="display: none;">
       <center>
-        <iframe id="earth" scrolling="no" frameborder="0" id="player" src="https://jsfiddle.net/kk13xmL7/show/embedded/?referrer=https%3A%2F%2Fblog.mapbox.com%2Fmedia%2F75c3658d29eafb6b1dabf6d7da68838c%3FpostId%3D604bd3767152" allowfullscreen="true"></iframe> 
+        <iframe scrolling="no" frameborder="0" id="player" src="https://jsfiddle.net/kk13xmL7/show/embedded/?referrer=https%3A%2F%2Fblog.mapbox.com%2Fmedia%2F75c3658d29eafb6b1dabf6d7da68838c%3FpostId%3D604bd3767152" allowfullscreen="true"></iframe> 
       </center>
     </div>
 
@@ -110,9 +105,21 @@
       </div>
     </div>
 
-    <div class="col-md-12" id="water">
-      hey
-    </div>
+<div class="container-fluid" id = "floods" style="display: none;">
+  <div class="col-md-12">
+    <center><iframe src="https://jsfiddle.net/6c8ynomd/1/embedded/result/?username=vishal260700" style="width: 95%;height: 600px;margin-top: 20px;margin-bottom: 20px;"></iframe></center>
+  </div>
+</div>
+
+<div class="container-fluid" id = "fire" style="display: none;">
+  <div class="col-md-12">
+    <center>
+      <iframe width="100%" height="300" src="//jsfiddle.net/vishal260700/9w71czpf/1/embedded/result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0" style="width: 95%;height: 600px;margin-top: 20px;margin-bottom: 20px;"></iframe>
+    </center>
+  </div>
+</div>
+
+
  </div>
 </div>
 
@@ -134,11 +141,6 @@
   </div>
 </div>
 
-<footer id="foot">
-   <div class="footer-bottom text-center">
-    Copyright &copy; 2018 Salvador
-  </div>
-</footer>
 
 <script>
 function openNav() {

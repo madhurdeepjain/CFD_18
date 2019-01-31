@@ -18,10 +18,11 @@
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="/predictions">Predictions</a>
-  <a href="/recent">Recent Events</a>
-  <a href="/statistics" class="active">Statistics</a>
-  <a href="/guid">Guidelines</a>
+    <a href="/recent">Recent Events</a>
+    <a href="/live_stock">Live Reports</a>
+    <a href="/uplift">Disaster Uplift</a>
+    <a href="/statistics" class="active">Statistics</a>
+    <a href="/guid">Guidelines</a>
 </div>
 
 <div class="topnav" id="myTopnav">
@@ -56,7 +57,7 @@
     <button id="Tsunami" style="background: url(./../images/tsunami.jpg);">Tsunami</button>
   </div>
   <div class="col-md-3">
-    <button id="Fire" style="background: url(./../images/wild.jpg);">Wild Fire</button>
+    <button id="Flood" style="background: url(./../images/flood.jpg);">Flood</button>
   </div>
   </center>
   </div>
@@ -79,6 +80,52 @@
 		</div>
 	</div>
 </div>
+
+
+<div class="container-fluid" id="tsunamis" style="display: none;">
+  <div class="col-md-12">
+    <center><h1 style="margin-bottom: 20px;">Tsunami</h1></center>
+  </div>
+  <div class="col-md-12">
+    <div class="col-md-6">
+      <center><h4>Distribution of Tsunami Effected Regions</h4></center>
+      <canvas id="tsuPie" style="background: white;border-radius: 5px;"></canvas>
+    </div>
+    <div class="col-md-6">
+      <center><h4>Most Tsunami Prone Countries</h4></center>
+      <canvas id="radarChart" style="background: white;border-radius: 5px;"></canvas>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <center><h4>Tsunami Causes</h4></center>
+    <canvas id="tsubar" style="background: white;border-radius: 5px;"></canvas>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="container-fluid" id="floods" style="display: none;">
+  <div class="col-md-12">
+    <center><h1 style="margin-bottom: 20px;">Flood</h1></center>
+  </div>
+  <div class="col-md-12">
+    <div class="col-md-6">
+      <center><h4>Year Wise Flood Count</h4></center>
+      <canvas id="floodline" style="background: white;border-radius: 5px;"></canvas>
+    </div>
+    <div class="col-md-6">
+      <center><h4>Flood Causes</h4></center>
+      <canvas id="floodPie" style="background: white;border-radius: 5px;height: 110%"></canvas>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+      <center><h4>Most Flood Prone Countries</h4></center>
+      <canvas id="floodBar" style="background: white;border-radius: 5px;"></canvas>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
 
 <div class="container-fluid" id="earth">
 	<div class="col-md-12">
@@ -145,7 +192,7 @@
   </div>
 </div>
 <script src="./../js/guid.js"></script>
-<script src="./../js/volStatistics.js"></script>
+<script src="./../js/statistics.js"></script>
 <script src="./../js/Volcano.js"></script>
 
 <style type="text/css">
@@ -173,14 +220,34 @@ function closeNav() {
 
 $("#Volcanic").click(function(){
     $("#earth").fadeOut();
+    $("#tsunamis").fadeOut();
+    $("#floods").fadeOut();
     $("#defaultCanvas0").fadeOut();
     $("#volcano").fadeIn(3000);
 });
 
 $("#Earthquake").click(function(){
     $("#volcano").fadeOut();
+    $("#tsunamis").fadeOut();
+    $("#floods").fadeOut();
     $("#earth").fadeIn(3000);
     $("#defaultCanvas0").fadeIn(3000);
+});
+
+$("#Tsunami").click(function(){
+    $("#volcano").fadeOut();
+    $("#earth").fadeOut();
+    $("#floods").fadeOut();
+    $("#defaultCanvas0").fadeOut();
+    $("#tsunamis").fadeIn(3000);
+});
+
+$("#Flood").click(function(){
+    $("#volcano").fadeOut();
+    $("#earth").fadeOut();
+    $("#tsunamis").fadeOut();
+    $("#defaultCanvas0").fadeOut();
+    $("#floods").fadeIn(3000);
 });
 
 </script>
