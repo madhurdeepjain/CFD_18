@@ -304,8 +304,9 @@ app.post('/ImageUpload', (req, res) => {
 
   app.post('/ImageSearch', function(req,res,next){
 
-  const imageUrl = 'https://raw.githubusercontent.com/madhurdeepjain/CFD_18/master/public/uploads/' + imagelink;
-  console.log(imagelink);
+  // const imageUrl = 'https://raw.githubusercontent.com/madhurdeepjain/CFD_18/master/public/uploads/' + imagelink;
+  const imageUrl = 'http://students.iitk.ac.in/roboclub/assets/images/seci/Madhur%20Jain.jpg';
+  // console.log(imagelink);
   let jsonResponse = '';
 
   let options = {
