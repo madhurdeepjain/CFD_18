@@ -17,6 +17,7 @@ const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 let total_results = 0;
 
+let imagelink = 'default';
 
 // Mongo URI
 
@@ -51,78 +52,78 @@ app.get('/',function(req,res,next){
 });
 
 app.get('/emergency' , function(req,res,next){
-  res.render('emergency');
+	res.render('emergency');
 });
 
 app.get('/predictions' , function(req,res,next){
-  res.render('predictions');
+	res.render('predictions');
 });
 
 app.get('/guid' , function(req,res,next){
-  res.render('guidlinsess');
+	res.render('guidlinsess');
 });
 
 app.get('/statistics' , function(req,res,next){
-  res.render('statistics');
+	res.render('statistics');
 });
 
 app.get('/recent' , function(req,res,next){
-  res.render('ongoing');
+	res.render('ongoing');
 });
 
 app.get('/uplift' , function(req,res,next){
-  res.render('uplift',{message : ''});
+	res.render('uplift',{message : ''});
 });
 
 app.get('/live_stock' , function(req,res,next){
-  var name = [];
-  var phone1 = [];
-  var phone2 = [];
-  var disasters = [];
-  var lat0 = [];
-  var lon0 = [];
+	var name = [];
+	var phone1 = [];
+	var phone2 = [];
+	var disasters = [];
+	var lat0 = [];
+	var lon0 = [];
 
-  mongo.MongoClient.connect(mongoURI, { useNewUrlParser: true }, function(err, db) {
-    if (err) console.log("error recieved");
-    const dbo = db.db('salvador_db1');
-    dbo.collection('salvador_col01').find({}).toArray(function(err, result) {
-      if (err) console.log('Error detected');
+	mongo.MongoClient.connect(mongoURI, { useNewUrlParser: true }, function(err, db) {
+	  if (err) console.log("error recieved");
+	  const dbo = db.db('salvador_db1');
+	  dbo.collection('salvador_col01').find({}).toArray(function(err, result) {
+	    if (err) console.log('Error detected');
 
-      console.log(result);
-      console.log(result[1]['Victim_Name']);
+	    console.log(result);
+	    console.log(result[1]['Victim_Name']);
 
-      var i = 0;
+	    var i = 0;
 
-      while(result[i] != null){
-        if(result[i].Victim_Name && result[i].Latitude && result[i].Longitude){
-          name.push(result[i].Victim_Name);
-          phone1.push(result[i].Personal_Contact_Number);
-          phone2.push(result[i].Family_Contact_Number);
-          disasters.push(result[i].Disaster_Type);
-          lat0.push(result[i].Latitude);
-          lon0.push(result[i].Longitude);
-        };
-        i = i + 1;
-      };
+	    while(result[i] != null){
+	    	if(result[i].Victim_Name && result[i].Latitude && result[i].Longitude){
+	    		name.push(result[i].Victim_Name);
+	    		phone1.push(result[i].Personal_Contact_Number);
+	    		phone2.push(result[i].Family_Contact_Number);
+	    		disasters.push(result[i].Disaster_Type);
+	    		lat0.push(result[i].Latitude);
+	    		lon0.push(result[i].Longitude);
+	    	};
+	    	i = i + 1;
+	    };
 
-        res.render('liveStock',{
-          name : name,
-          phone1 : phone1,
-          phone2 : phone2,
-          disasters : disasters,
-          lat0 : lat0,
-          lon0 : lon0,
-          Victim : [],
-          Disaster : [],
-          Lat : [], 
-          Lon : [],
-          total_results : 0
-        });
-      db.close();
-    });
-  });
+	      res.render('liveStock',{
+		      name : name,
+		      phone1 : phone1,
+		      phone2 : phone2,
+		      disasters : disasters,
+		      lat0 : lat0,
+		      lon0 : lon0,
+		      Victim : [],
+		      Disaster : [],
+		      Lat : [], 
+		      Lon : [],
+		      total_results : 0
+	    	});
+	    db.close();
+	  });
+	});
 
-  });
+	});
 
 // ------------------ Database Work starts from here ---------------------
 
@@ -167,40 +168,41 @@ app.post('/Namesearch', function(req, res, next){
     const dbo = db.db('salvador_db1');
     dbo.collection('salvador_col01').find({"Victim_Name" : input}).toArray(function(err,result){
 
-      console.log(result);
+    	console.log(result);
 
-      total_results = result.length;
+    	total_results = result.length;
 
-      for(var i = 0 ; i < total_results ; i++){
-        Victim.push(result[i]['Victim_Name']);
-        Disaster.push(result[i]['Disaster_Type']);
-        Lat.push(result[i]['Latitude']);
-        Lon.push(result[i]['Longitude']);
-        phone1.push(result[i]['Personal_Contact_Number']);
-        phone2.push(result[i]['Family_Contact_Number']);
-      }
+    	for(var i = 0 ; i < total_results ; i++){
+    		Victim.push(result[i]['Victim_Name']);
+    		Disaster.push(result[i]['Disaster_Type']);
+    		Lat.push(result[i]['Latitude']);
+    		Lon.push(result[i]['Longitude']);
+    		phone1.push(result[i]['Personal_Contact_Number']);
+    		phone2.push(result[i]['Family_Contact_Number']);
+    	}
 
-        res.render('liveStock', {Victim : Victim, Disaster : Disaster,
-                Lat : Lat, Lon : Lon, name : Victim, phone1 : phone1, phone2 : phone2, 
-                disasters : Disaster, lat0 : Lat, lon0 : Lon, total_results : total_results})
-      db.close();
-        console.log("Sucessfull Search");
+      	res.render('liveStock', {Victim : Victim, Disaster : Disaster,
+      			    Lat : Lat, Lon : Lon, name : Victim, phone1 : phone1, phone2 : phone2, 
+      			    disasters : Disaster, lat0 : Lat, lon0 : Lon, total_results : total_results})
+    	db.close();
+      	console.log("Sucessfull Search");
     });
   });
 });
 
 // ---------------- Image Uploading -----------------------
 
-const storage = multer.diskStorage({
-  destination: './public/uploads/',
+
+const storage2 = multer.diskStorage({
+  destination: './public/uploads2/',
   filename: function(req, file, cb){
     cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
 });
 
 // Init Upload
-const upload = multer({
-  storage: storage,
+const upload2 = multer({
+  storage: storage2,
   limits:{fileSize: 1000000},
   fileFilter: function(req, file, cb){
     checkFileType(file, cb);
@@ -225,18 +227,72 @@ function checkFileType(file, cb){
 }
 
 
+app.post('/Imupload', (req, res) => {
+  upload2(req, res, (err) => {
+    if(err){
+      res.render('uplift');
+    } else {
+        res.render('uplift', {
+          msg: 'File Uploaded!',
+          message : '',
+          file: `uploads2/${req.file.filename}`
+        });
+      }
+  });
+});
+
+const storage = multer.diskStorage({
+  destination: './public/uploads/',
+  filename: function(req, file, cb){
+    cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+
+// Init Upload
+const upload = multer({
+  storage: storage,
+  limits:{fileSize: 1000000},
+  fileFilter: function(req, file, cb){
+    checkFileType(file, cb);
+  }
+}).single('vishal');
+
+
+// Check File Type
+function checkFileType(file, cb){
+  // Allowed ext
+  const filetypes = /jpeg|jpg|png|gif/;
+  // Check ext
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  // Check mime
+  const mimetype = filetypes.test(file.mimetype);
+
+  if(mimetype && extname){
+    return cb(null,true);
+  } else {
+    cb('Error: Images Only!');
+  }
+}
+
+const subscriptionKey = '2fda92f422f54ddcaedbeea7ee9e8c36';
+
 app.post('/ImageUpload', (req, res) => {
   upload(req, res, (err) => {
     if(err){
       res.render('uplift', {
-        msg: err
+        msg: err,
+        message : ''
       });
     } else {
       if(req.file == undefined){
         res.render('uplift', {
-          msg: 'Error: No File Selected!'
+          msg: 'Error: No File Selected!',
+          message : ''
         });
       } else {
+      	imagelink = req.file.filename;
+      	console.log(req.file.filename);
+      	console.log("##########");
         res.render('uplift', {
           msg: 'File Uploaded!',
           message : '',
@@ -246,13 +302,10 @@ app.post('/ImageUpload', (req, res) => {
     }
   });
 
-});
+  app.post('/ImageSearch', function(req,res,next){
 
-const subscriptionKey = '2fda92f422f54ddcaedbeea7ee9e8c36';
-
-app.post('/ImageSearch', function(req,res,next){
-
-  const imageUrl = 'http://students.iitk.ac.in/roboclub/assets/images/seci/Abhay%20Varshney.jpg';
+  const imageUrl = 'https://raw.githubusercontent.com/madhurdeepjain/CFD_18/master/public/uploads/' + imagelink;
+  console.log(imagelink);
   let jsonResponse = '';
 
   let options = {
@@ -294,10 +347,19 @@ app.post('/ImageSearch', function(req,res,next){
     }
     jsonResponse = JSON.parse(body);
     console.log('JSON Response\n');
+    console.log("#########" + jsonResponse + "###########");
+    if(jsonResponse == ''){
+    	res.render('uplift', {msg : '', message : 'Person Not Found'});
+    } else {
+    	res.render('uplift', {msg : '', message : 'Person Found !!'});
+    }
     });
 
   });
 
+  // ----------- Once data base working is completed -----------------
+
+  /*
   mongo.MongoClient.connect(mongoURI, { useNewUrlParser: true }, function(err, db) {
     const dbo = db.db('salvador_db1');
     dbo.collection('salvador_col01').find({"pfaceId" : ''}).toArray(function(err,result){ // jsonResponse[0].persistedFaceId
@@ -309,7 +371,9 @@ app.post('/ImageSearch', function(req,res,next){
       console.log("Sucessfull Image Search");
     });
   });
+  */
 
 });
 
-// -------- Face API --------------
+
+});
